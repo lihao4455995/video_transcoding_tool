@@ -1,0 +1,10 @@
+packages:
+  - .
+
+allowBuilds:
+  electron-winstaller: true
+  esbuild: true
+
+onlyBuiltDependencies:
+  - electron-winstaller
+  - esbuild

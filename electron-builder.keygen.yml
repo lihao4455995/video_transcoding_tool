@@ -1,0 +1,17 @@
+appId: com.framebridge.licensegenerator
+productName: 山水映帧授权中心
+directories:
+  output: release/keygen
+files:
+  - dist/**/*
+  - dist-electron/keygen-main.js
+  - dist-electron/preload.js
+  - package.json
+extraMetadata:
+  main: dist-electron/keygen-main.js
+asar: true
+win:
+  target:
+    - target: portable
+      arch: [x64]
+  artifactName: Shanshui-Yingzhen-License-Generator-${version}-${arch}.${ext}

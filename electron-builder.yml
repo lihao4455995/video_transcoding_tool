@@ -1,0 +1,27 @@
+appId: com.framebridge.transcoder
+productName: 山水映帧
+directories:
+  output: release/app
+files:
+  - dist/**/*
+  - dist-electron/main.js
+  - dist-electron/preload.js
+  - package.json
+extraResources:
+  # The release build uses the audited FFmpeg binaries checked into artifacts.
+  # They are placed outside app.asar so Electron can execute them directly.
+  - from: artifacts/ffmpeg-test/ffmpeg-9.0.1-essentials_build/bin/ffmpeg.exe
+    to: bin/ffmpeg.exe
+  - from: artifacts/ffmpeg-test/ffmpeg-9.0.1-essentials_build/bin/ffprobe.exe
+    to: bin/ffprobe.exe
+asar: true
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  artifactName: Shanshui-Yingzhen-${version}-${arch}.${ext}
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: 山水映帧

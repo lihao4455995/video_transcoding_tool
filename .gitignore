@@ -1,0 +1,25 @@
+node_modules/
+.pnpm-store/
+dist/
+dist-electron/
+release/
+artifacts/
+coverage/
+license-keys/
+.env
+.env.*
+*.log
+*.tmp
+
+# 私钥与证书（授权体系安全）
+*.pem
+*.key
+*.pfx
+*.p12
+license-private.pem
+
+# 编辑器 / 系统文件
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

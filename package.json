@@ -1,0 +1,43 @@
+{
+  "name": "shanshui-yingzhen",
+  "version": "0.1.0",
+  "author": "Shanshui Studio",
+  "private": true,
+  "description": "山水映帧本地视频转码工作台",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"tsup --watch\" \"wait-on tcp:5173 dist-electron/main.js && electron .\"",
+    "dev:keygen": "concurrently -k \"vite\" \"tsup --watch\" \"wait-on tcp:5173 dist-electron/keygen-main.js && electron dist-electron/keygen-main.js\"",
+    "build:web": "vite build",
+    "build:main": "tsup",
+    "build": "pnpm build:main && pnpm build:web",
+    "package:app": "pnpm build && electron-builder --config electron-builder.yml",
+    "package:keygen": "pnpm build && electron-builder --config electron-builder.keygen.yml",
+    "package:windows": "pnpm package:app && pnpm package:keygen",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "license:keys": "node scripts/generate-license-keys.mjs",
+    "license:issue": "node scripts/issue-license.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "concurrently": "latest",
+    "electron": "latest",
+    "electron-builder": "latest",
+    "tsup": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitest": "latest",
+    "wait-on": "latest"
+  },
+  "packageManager": "pnpm@11.19.0"
+}
